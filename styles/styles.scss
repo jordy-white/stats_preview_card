@@ -1,0 +1,169 @@
+// Primary color variables
+$main-background: hsl(233, 47%, 7%);
+$card-background: hsl(244, 38%, 16%);
+$accent: hsl(277, 64%, 61%);
+
+// Neutral colors
+$heading: hsl(0, 0%, 100%);
+$paragraph: hsla(0, 0%, 100%, 0.75);
+$stat-heading: hsla(0, 0%, 100%, 0.6);
+
+// font import and variables
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap");
+
+$font-one: "Inter", sans-serif;
+$font-two: "Lexend Deca", sans-serif;
+
+// universals
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-one;
+  background-color: $main-background;
+  text-align: center;
+  color: $heading;
+}
+
+// card
+.card-container {
+  margin: 5em auto;
+  max-width: 327px;
+  min-width: 327px;
+
+  .card {
+    background-color: $card-background;
+    border-radius: 7px;
+    overflow: hidden;
+
+    .first-half {
+      background-color: $accent;
+      height: 240.25px;
+    }
+
+    .first-half .mobile-img {
+      width: 100%;
+      opacity: 0.5;
+    }
+
+    .first-half .desktop-img {
+      display: none;
+    }
+  }
+}
+
+// card second half
+.second-half {
+  margin-top: 2em;
+}
+
+.header {
+  padding: 0 0.5em 0.5em 0.5em;
+  font-size: 1.875rem;
+
+  span {
+    color: $accent;
+  }
+}
+
+.text p {
+  margin: 0 1.5em;
+  line-height: 1.8;
+  color: $paragraph;
+  padding-bottom: 1em;
+}
+
+.stats {
+  margin: 1em;
+
+  .stat-boxes {
+    margin: 1.5em;
+
+    h2 {
+      font-size: 1.65rem;
+    }
+
+    p {
+      color: $paragraph;
+      text-transform: uppercase;
+      font-family: $font-two;
+      padding: 0.3em;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card-container {
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0 auto;
+
+    .card {
+      display: flex;
+      flex-direction: row-reverse;
+      height: 100%;
+
+      .first-half {
+        width: 50%;
+        height: 100%;
+        // border: 1px dashed #f7a239;
+
+        .mobile-img {
+          display: none;
+        }
+
+        .desktop-img {
+          width: 100%;
+          height: 100%;
+          display: inline;
+          opacity: 0.5;
+          vertical-align: bottom;
+        }
+      }
+      // second half
+
+      .second-half {
+        text-align: left;
+        width: 50%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .text {
+          margin: 0;
+        }
+
+        .text .header {
+          font-size: 2.5em;
+          padding: 0;
+          margin: 1rem 2rem 0 4rem;
+        }
+
+        .text p {
+          padding: 0;
+          margin: 0 7rem 0 4rem;
+        }
+
+        .stats {
+          display: flex;
+          justify-content: space-between;
+          padding: 0;
+          margin: 0 8rem 1rem 4rem;
+
+          .stat-boxes {
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
